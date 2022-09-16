@@ -1,0 +1,228 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "collapsed_sections": [],
+      "authorship_tag": "ABX9TyOW5yYgasyX4INecwkyRqbM",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/KurniawatiAgustina/KurniawatiAgustina/blob/main/kecerdasan_buatan.1ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "dV5TvpYs1-Rk",
+        "outputId": "2b096016-f8b8-48da-a389-ae39e6d13b1e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hasil Penulusaran graf menggunakan BFS:\n",
+            "A B C D E F H G "
+          ]
+        }
+      ],
+      "source": [
+        "graph = {\n",
+        "    'A' : ['B','C'],\n",
+        "    'B' : ['D','E'],\n",
+        "    'C' : ['F'],\n",
+        "    'D' : [],\n",
+        "    'E' : ['F'],\n",
+        "    'F' : ['H'],\n",
+        "    'G' : ['H'],\n",
+        "    'H' : ['G'],\n",
+        "\n",
+        "}\n",
+        "visited = [] # List to keep track of visited nodes.\n",
+        "queue = [] # Initialize a queue\n",
+        "\n",
+        "def bfs (visited, graph, node):\n",
+        "  visited.append(node)\n",
+        "  queue.append(node)\n",
+        "\n",
+        "  while queue:\n",
+        "    s = queue.pop(0)\n",
+        "    print (s, end = \" \")\n",
+        "\n",
+        "    for neighbour in graph[s]:\n",
+        "        if neighbour not in visited:\n",
+        "          visited.append(neighbour)\n",
+        "          queue.append(neighbour)\n",
+        "\n",
+        "print(\"Hasil Penulusaran graf menggunakan BFS:\")\n",
+        "bfs(visited, graph, 'A')"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "199u09PsI7S6"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "graph = {\n",
+        "  'A' : ['B','C'],\n",
+        "  'B' : ['D','E'],\n",
+        "  'C' : ['F'],\n",
+        "  'D' : [],\n",
+        "  'E' : ['F'],\n",
+        "  'F' : ['H'],\n",
+        "  'G' : ['H'],\n",
+        "  'H' : ['G'],\n",
+        "}\n",
+        "visited = set()\n",
+        "\n",
+        "def dfs(visited, graph, node):\n",
+        "  if node not in visited:\n",
+        "      print (node)\n",
+        "      visited.add(node)\n",
+        "      for neighbour in graph[node]:\n",
+        "        dfs(visited, graph, neighbour)\n",
+        "\n",
+        "print(\"Hasil penulusuran graf menggunakan DFS:\")\n",
+        "dfs(visited, graph, 'A')\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "L0uSmlxy_tMc",
+        "outputId": "bbb32cf3-47d8-4887-8c90-95f9886590f9"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hasil penulusuran graf menggunakan DFS:\n",
+            "A\n",
+            "B\n",
+            "D\n",
+            "E\n",
+            "F\n",
+            "H\n",
+            "G\n",
+            "C\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Latihan Praktikum  BFS#\n",
+        "graph = {\n",
+        "    'A' : ['B','E','F'],\n",
+        "    'B' : ['F','G'],\n",
+        "    'C' : ['D','G'],\n",
+        "    'D' : ['C','H'],\n",
+        "    'E' : ['A','F'],\n",
+        "    'F' : ['B','E'],\n",
+        "    'G' : ['C','H'],\n",
+        "    'H' : ['D','G'],\n",
+        "\n",
+        "}\n",
+        "visited = [] # List to keep track of visited nodes.\n",
+        "queue = [] # Initialize a queue\n",
+        "\n",
+        "def bfs (visited, graph, node):\n",
+        "  visited.append(node)\n",
+        "  queue.append(node)\n",
+        "\n",
+        "  while queue:\n",
+        "    s = queue.pop(0)\n",
+        "    print (s, end = \" \")\n",
+        "\n",
+        "    for neighbour in graph[s]:\n",
+        "        if neighbour not in visited:\n",
+        "          visited.append(neighbour)\n",
+        "          queue.append(neighbour)\n",
+        "\n",
+        "print(\"Hasil Penulusaran graf menggunakan BFS:\")\n",
+        "bfs(visited, graph, 'A')\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "qCUFW-pwMfPB",
+        "outputId": "839da6f2-bdd7-4196-a761-c782c4d64453"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hasil Penulusaran graf menggunakan BFS:\n",
+            "A B E F G C H D "
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Latihan Praktikum DFS#\n",
+        "\n",
+        "graph = {\n",
+        "  'A' : ['B','C'],\n",
+        "  'B' : ['D','E'],\n",
+        "  'C' : ['F'],\n",
+        "  'D' : [],\n",
+        "  'E' : ['F'],\n",
+        "  'F' : ['H'],\n",
+        "  'G' : ['H'],\n",
+        "  'H' : ['G'],\n",
+        "}\n",
+        "visited = set()\n",
+        "\n",
+        "def dfs(visited, graph, node):\n",
+        "  if node not in visited:\n",
+        "      print (node)\n",
+        "      visited.add(node)\n",
+        "      for neighbour in graph[node]:\n",
+        "        dfs(visited, graph, neighbour)\n",
+        "\n",
+        "print(\"Hasil penulusuran graf menggunakan DFS:\")\n",
+        "dfs(visited, graph, 'A')\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "sz7QR47_M8e3"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
